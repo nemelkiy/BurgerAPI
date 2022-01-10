@@ -14,6 +14,9 @@ import java.net.UnknownHostException;
 @RestController
 @RequestMapping(value = "/api/v1/status", produces = MediaType.APPLICATION_JSON_VALUE)
 public class StatusController {
+
+
+
     @GetMapping
     public Status get() throws UnknownHostException{
         Status compInfo = new Status(InetAddress.getLocalHost().getHostName());
