@@ -1,5 +1,10 @@
 FROM openjdk:8-jdk-alpine
-COPY ./target/burgerapi-1.0.jar /usr/app/
-WORKDIR /usr/app
-EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "burgerapi-1.0.jar"]
+
+ARG JAR_FILE
+
+RUN mkdir -p /apps
+COPY ./target/${JAR_FILE} /apps/app.jar
+COPY ./entrypoint.sh /apps/entrypoint.sh
+
+RUN chmod +x /apps/entrypoint.sh
+CMD ["/apps/entrypoint.sh"]
