@@ -65,3 +65,14 @@
 - Удаление записи из базы данных по известному id
 
 Тип запроса: `DELETE` `http://localhost:8080/api/v1/product/7`
+
+## Лабораторная работа №3: CI/CD и деплой приложения в Heroku
+### Целью лабораторной работы является знакомство с CI/CD и его реализацией на примере Travis CI и Heroku.
+
+- Travis CI badge:
+
+  [Ссылка на CIBadge](https://app.travis-ci.com/github/nemelkiy/BurgerAPI)
+
+- Ссылка на приложение:
+
+  [Ссылка на приложение](https://simpleburgerapi.herokuapp.com/api/v1/product)
