@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: burgerapi-deployment
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: burgerapi-app
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: burgerapi-app
+    spec:
+      containers:
+        - image: burgerapi:latest
+          imagePullPolicy: Never 
+          name: burgerapi
+          ports:
+            - containerPort: 8080
+      hostAliases:
+      - ip: "192.168.65.2" # The IP of localhost from MiniKube
+        hostnames:
+        - postgres.local
